@@ -11,6 +11,7 @@ A Liquid Glass island for the Mac notch — now playing, volume & brightness, th
 [![Free for personal use](https://img.shields.io/badge/price-free-34c759)](LICENSE.md)
 [![License: free, no resale](https://img.shields.io/badge/license-free%2C%20no%20resale-4a5c87)](LICENSE.md)
 [![Add-ons](https://img.shields.io/badge/add--ons-DynamicBarKit%202-f24d66)](#add-ons-dynamicbarkit)
+[![Support on Ko-fi](https://img.shields.io/badge/Ko--fi-support-00b9fe?logo=ko-fi&logoColor=white)](https://ko-fi.com/kag1o)
 
 [**Website**](https://kag1o.github.io/DynamicBar/) · [**Download**](https://github.com/KAG1O/DynamicBar/releases/latest) · [**Developer docs**](https://kag1o.github.io/DynamicBar/developer.html) · [**Add-on playground**](https://kag1o.github.io/DynamicBar/developer.html#playground)
 
@@ -126,11 +127,15 @@ render();
 
 ## Privacy
 
-DynamicBar has no analytics and no account. It makes only two kinds of requests on its own: an artwork lookup on Apple's iTunes Search when the playing app doesn't provide a cover, and a daily update check on this repository's website, which you can turn off. Add-ons can reach the network only with the `network` permission, which is shown before you install them.
+DynamicBar has no analytics and no account. The website's "Support Me" button loads a small widget from Ko-fi, only on the website, never in the app. It makes only two kinds of requests on its own: an artwork lookup on Apple's iTunes Search when the playing app doesn't provide a cover, and a daily update check on this repository's website, which you can turn off. Add-ons can reach the network only with the `network` permission, which is shown before you install them.
 
 ## License
 
 DynamicBar is free to download and use, including on a Mac you use for work. You may not sell it, include it in a paid product, use it to make money, or redistribute it outside the official releases. The code is not open source. Copyright © 2026 KAG1O; see [LICENSE.md](LICENSE.md). For other uses, [ask first](https://github.com/KAG1O).
+
+## Support
+
+DynamicBar is free. If it makes your day nicer, you can [buy me a coffee on Ko-fi](https://ko-fi.com/kag1o). It goes into making more apps.
 
 ## Feedback
 
