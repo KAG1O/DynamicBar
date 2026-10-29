@@ -1,5 +1,5 @@
 /* DynamicBar — the Ko-fi "Support Me" button.
-   Ko-fi's script loads only after the page has finished, so it never slows the first paint. */
+   Ko-fi's script loads just after the page's HTML is ready, so it never delays the first paint. */
 (() => {
   const load = () => {
     const script = document.createElement("script");
@@ -16,6 +16,8 @@
     };
     document.head.append(script);
   };
-  if (document.readyState === "complete") setTimeout(load, 800);
-  else addEventListener("load", () => setTimeout(load, 800));
+  // Right after the page's own HTML is ready, not after every video and image has loaded.
+  const start = () => setTimeout(load, 200);
+  if (document.readyState === "loading") addEventListener("DOMContentLoaded", start);
+  else start();
 })();
