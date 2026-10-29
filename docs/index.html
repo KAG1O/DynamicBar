@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DynamicBar — your notch, alive</title>
+<meta name="description" content="DynamicBar turns the MacBook notch into a live Liquid Glass island: what's playing, volume and brightness, the charger, a tray for your files, and add-ons you write in JavaScript. Free for personal use.">
+<meta property="og:title" content="DynamicBar — your notch, alive">
+<meta property="og:description" content="A free Liquid Glass island for the Mac notch, with add-ons you write in JavaScript.">
+<meta property="og:image" content="assets/img/island-player.jpg">
+<meta name="theme-color" content="#0e1120" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#edf0f6" media="(prefers-color-scheme: light)">
+<link rel="icon" href="assets/img/icon.png">
+<script>try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-gh" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0-5-5m5 5 5-5M5 20h14"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path fill="currentColor" d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1Z"/></symbol>
+  <symbol id="i-braces" viewBox="0 0 24 24"><path fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5a2 2 0 0 0 2 2h1M16 21h1a2 2 0 0 0 2-2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1"/></symbol>
+  <symbol id="i-hammer" viewBox="0 0 24 24"><path fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m15 12-8.5 8.5a2.12 2.12 0 1 1-3-3L12 9m5.64 6L22 10.64M20.91 11.7l-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1.4" fill="currentColor"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 28 14"><rect x="1" y="1" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".55"/><rect x="3" y="3" width="13" height="8" rx="1.8" fill="currentColor"/><path d="M26 5v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".55"/></symbol>
+  <symbol id="i-speaker" viewBox="0 0 24 24"><path fill="currentColor" d="M11 5 6 9H2v6h4l5 4V5Z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></symbol>
+  <symbol id="i-ridges" viewBox="0 0 1000 400" preserveAspectRatio="none"><path fill="rgba(41,46,69,.75)" d="M0 400V340C120 300 200 160 320 150c120-10 200 40 300 120 110 90 260 60 380 0V400Z"/><path fill="rgba(20,23,38,.88)" d="M0 400V330c200 30 380 10 560-110 120-80 280-100 440 20V400Z"/></symbol>
+</svg>
+
+<nav class="nav" aria-label="Main">
+  <a class="brand" href="#top"><img src="assets/img/icon.png" alt="">DynamicBar</a>
+  <a class="link opt" href="#features">Features</a>
+  <a class="link opt" href="#settings">Settings</a>
+  <a class="link" href="developer.html">Developer</a>
+  <button class="theme-btn" type="button"><svg class="moon"><use href="#i-moon"/></svg><svg class="sun"><use href="#i-sun"/></svg></button>
+  <a class="btn get" href="#download">Download</a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <h1>Your notch, alive.</h1>
+    <p class="lead">DynamicBar turns the notch into an island of glass. It shows what's playing, your volume and brightness, the charger, and a tray for anything you drop on it. You can write your own add-ons too.</p>
+    <div class="btn-row" id="download">
+      <a class="btn primary" href="https://github.com/KAG1O/DynamicBar/releases/latest"><svg><use href="#i-down"/></svg>Download for Mac</a>
+      <a class="btn" href="https://github.com/KAG1O/DynamicBar"><svg><use href="#i-gh"/></svg>View on GitHub</a>
+    </div>
+    <p class="fine">Free. Needs macOS 26 or later.</p>
+
+    <div class="stage" data-loop id="stage">
+      <div class="screen" id="screen">
+        <svg class="ridges" aria-hidden="true"><use href="#i-ridges"/></svg>
+        <div class="menubar" aria-hidden="true">
+          <b>Finder</b><span class="opt">File</span><span class="opt">Edit</span><span class="opt">View</span>
+          <span class="right"><svg><use href="#i-wifi"/></svg><svg style="width:22px"><use href="#i-battery"/></svg><span id="clock">9:41</span></span>
+        </div>
+        <div class="island-wrap"><button class="island" id="island" type="button" aria-label="The island. Click to open it."></button></div>
+        <div class="side-pill" id="sidePill" aria-hidden="true"><i></i></div>
+      </div>
+      <div class="base"></div>
+    </div>
+    <div class="seg" id="states" role="group" aria-label="Show the island as"></div>
+  </div>
+</header>
+
+<main>
+  <section class="section" id="features">
+    <div class="wrap">
+      <div class="head">
+        <h2>Everything the notch should have done.</h2>
+        <p class="lead">Every picture here was captured from the app running on a MacBook. The glass bends whatever is behind it.</p>
+      </div>
+
+      <div class="grid two">
+        <article class="feature">
+          <div class="shot"><img src="assets/img/island-player.jpg" alt="The open island playing a song over a blue wallpaper" loading="lazy"></div>
+          <div class="body"><h3>A player in the notch</h3><p>Artwork, scrubbing, AirPlay and favourites from anything that plays: Music, Spotify, a video in the browser, a podcast.</p></div>
+        </article>
+        <article class="feature">
+          <div class="shot"><img src="assets/img/island-tray.jpg" alt="The tray page of the open island" loading="lazy"></div>
+          <div class="body"><h3>A tray for your things</h3><p>Drop files, images, links or text on the island. They wait there until you drag them out. Swipe with two fingers to switch pages.</p></div>
+        </article>
+      </div>
+
+      <div class="grid three">
+        <article class="feature">
+          <div class="shot"><video src="assets/video/hud.mp4" poster="assets/img/poster-hud.jpg" muted loop playsinline preload="metadata" aria-label="The island showing the volume level"></video></div>
+          <div class="body"><h3>Volume and brightness</h3><p>Press a key and the island stretches to show the level.</p></div>
+        </article>
+        <article class="feature">
+          <div class="shot"><img src="assets/img/island-power.jpg" alt="Battery level beside the notch" loading="lazy"></div>
+          <div class="body"><h3>Charger</h3><p>The battery level shows beside the notch when you plug in or unplug.</p></div>
+        </article>
+        <article class="feature">
+          <div class="shot"><video src="assets/video/lock.mp4" poster="assets/img/poster-lock.jpg" muted loop playsinline preload="metadata" aria-label="A padlock beside the notch as the screen locks"></video></div>
+          <div class="body"><h3>Lock screen</h3><p>A padlock closes and opens as the screen locks and unlocks.</p></div>
+        </article>
+      </div>
+
+      <div class="grid two">
+        <article class="feature">
+          <div class="shot pill"><video src="assets/video/side.mp4" poster="assets/img/poster-side.jpg" muted loop playsinline preload="metadata" aria-label="A level pill at the right edge of the screen"></video></div>
+          <div class="body"><h3>Levels on the edge</h3><p>Prefer the island quiet? Show levels as a pill on the left or right edge of the screen, and drag it to change them.</p></div>
+        </article>
+        <article class="feature">
+          <div class="shot"><video src="assets/video/expand.mp4" poster="assets/img/poster-expand.jpg" muted loop playsinline preload="metadata" aria-label="The island opening from the notch and closing again"></video></div>
+          <div class="body"><h3>Made of glass</h3><p>Clear glass that bends the wallpaper, or solid black like the notch itself. Set the tint anywhere in between.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tour" id="settings">
+    <div class="wrap">
+      <div class="head">
+        <h2>Settings that show you what they do.</h2>
+        <p class="lead">Each section opens on a small desktop. A miniature island follows every switch as you flip it.</p>
+      </div>
+      <div class="seg" id="tourTabs" role="group" aria-label="Settings section"></div>
+      <p class="tour-caption" id="tourCaption" aria-live="polite"></p>
+      <div class="tour-shot" id="tourShot"></div>
+    </div>
+  </section>
+
+  <section class="section" id="welcome">
+    <div class="wrap">
+      <div class="head">
+        <h2>Ready in a minute.</h2>
+        <p class="lead">A short welcome asks for two permissions, lets you pick the glass and where levels show, then has you try the real island.</p>
+      </div>
+      <div class="welcome-video"><video src="assets/video/onboarding.mp4" poster="assets/img/poster-onboarding.jpg" muted loop playsinline preload="metadata" aria-label="The welcome window cycling through the island's shapes"></video></div>
+      <ol class="steps">
+        <li><img src="assets/img/onboarding-0.png" alt="" loading="lazy">Meet the island</li>
+        <li><img src="assets/img/onboarding-1.png" alt="" loading="lazy">Permissions</li>
+        <li><img src="assets/img/onboarding-2.png" alt="" loading="lazy">Make it yours</li>
+        <li><img src="assets/img/onboarding-3.png" alt="" loading="lazy">Try it</li>
+        <li><img src="assets/img/onboarding-4.png" alt="" loading="lazy">Done</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="developers">
+    <div class="wrap">
+      <div class="head">
+        <h2>Teach it new tricks.</h2>
+        <p class="lead">Add your own pages to the island with a few lines of JavaScript. No build step, no account.</p>
+      </div>
+      <div class="grid two">
+        <div class="card">
+          <div class="kit-icon"><svg><use href="#i-braces"/></svg></div>
+          <h3>Write an add-on</h3>
+          <p>A folder with a manifest and a script. Edit one in the browser and watch the island update as you type.</p>
+          <div class="btn-row"><a class="btn" href="developer.html#playground">Open the playground</a></div>
+        </div>
+        <div class="card">
+          <div class="kit-icon" style="background:#000"><svg><use href="#i-hammer"/></svg></div>
+          <h3>Let an AI write it</h3>
+          <p>Describe what you want. Copy a prompt that carries the whole reference and paste it into any AI chat.</p>
+          <div class="btn-row"><a class="btn" href="developer.html#ai">Build a prompt</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="narrow">
+      <div class="head"><h2>Questions</h2></div>
+      <details open><summary>Is it free?</summary><p>Yes. No subscription, no ads, no account, no analytics, and you can use it on a work Mac too. Selling it or using it to make money isn't allowed; see the license on GitHub.</p></details>
+      <details><summary>Does it work on a Mac without a notch?</summary><p>Yes. The island hangs from the middle of the menu bar instead. It looks best on a MacBook with a notch, where it grows out of the cutout.</p></details>
+      <details><summary>Which music apps work?</summary><p>Anything that reports to macOS Now Playing: Music, Spotify, podcasts, videos in Safari or Chrome. You can limit it to the Music app or turn the player off.</p></details>
+      <details><summary>Why does it ask for Accessibility?</summary><p>Only to take over the volume and brightness keys, so levels show in the island instead of the system square. Choose “System” in Settings and it never needs it.</p></details>
+      <details><summary>Are add-ons safe?</summary><p>Add-ons run inside DynamicBar's JavaScript sandbox. The network, links, media, the clipboard and opening the island each need a permission, shown before you install. Developer Mode stays off until you turn it on.</p></details>
+      <details><summary>macOS says it can't check the app.</summary><p>DynamicBar isn't notarized by Apple. Close the message, open System Settings › Privacy &amp; Security, scroll down and click Open Anyway. If macOS says the app is damaged, run <code>xattr -cr /Applications/DynamicBar.app</code> in Terminal and open it again.</p></details>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="wrap">
+      <h2>Give your notch something to do.</h2>
+      <div class="btn-row">
+        <a class="btn primary" href="https://github.com/KAG1O/DynamicBar/releases/latest"><svg><use href="#i-down"/></svg>Download for Mac</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 KAG1O</span>
+    <nav aria-label="Footer"><a href="developer.html">Developer</a><a href="https://github.com/KAG1O/DynamicBar">GitHub</a><a href="https://github.com/KAG1O/DynamicBar/blob/main/LICENSE.md">License</a></nav>
+  </div>
+</footer>
+
+<script src="assets/common.js"></script>
+<script src="assets/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DynamicBar Developer — add-ons for the island</title>
+<meta name="description" content="Write add-ons for the DynamicBar island with DynamicBarKit: guide, reference, in-browser playground and an AI prompt builder.">
+<meta name="theme-color" content="#0e1120" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#edf0f6" media="(prefers-color-scheme: light)">
+<link rel="icon" href="assets/img/icon.png">
+<script>try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0-5-5m5 5 5-5M5 20h14"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path fill="currentColor" d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1Z"/></symbol>
+  <symbol id="i-braces" viewBox="0 0 24 24"><path fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5a2 2 0 0 0 2 2h1M16 21h1a2 2 0 0 0 2-2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1"/></symbol>
+  <symbol id="i-ridges" viewBox="0 0 1000 400" preserveAspectRatio="none"><path fill="rgba(41,46,69,.75)" d="M0 400V340C120 300 200 160 320 150c120-10 200 40 300 120 110 90 260 60 380 0V400Z"/><path fill="rgba(20,23,38,.88)" d="M0 400V330c200 30 380 10 560-110 120-80 280-100 440 20V400Z"/></symbol>
+</svg>
+
+<nav class="nav" aria-label="Main">
+  <a class="brand" href="index.html"><img src="assets/img/icon.png" alt="">DynamicBar</a>
+  <a class="link opt" href="index.html#features">Features</a>
+  <a class="link" href="developer.html" aria-current="page">Developer</a>
+  <button class="theme-btn" type="button"><svg class="moon"><use href="#i-moon"/></svg><svg class="sun"><use href="#i-sun"/></svg></button>
+  <a class="btn get" href="index.html#download">Download</a>
+</nav>
+
+<header class="dev-hero">
+  <div class="wrap">
+    <div class="kit-icon"><svg><use href="#i-braces"/></svg></div>
+    <h1>Teach the island<br>new tricks.</h1>
+    <p class="lead">Add pages to the island with DynamicBarKit: plain JavaScript, no build step. Try an add-on right here in the browser, or describe one and let an AI write it.</p>
+  </div>
+</header>
+
+<div class="dev-nav">
+  <nav class="seg" id="devNav" aria-label="On this page">
+    <a href="#addons">Add-ons</a>
+    <a href="#playground">Playground</a>
+    <a href="#ai">AI prompt</a>
+    <a href="#reference">Reference</a>
+  </nav>
+</div>
+
+<main class="wrap">
+  <!-- Add-ons -->
+  <section class="doc" id="addons">
+    <div class="head">
+      <h2>Write an add-on</h2>
+      <p class="lead">An add-on is a folder with <code>manifest.json</code> and <code>main.js</code>. It draws pages in the open island and short events beside the closed one.</p>
+    </div>
+    <div class="cols">
+      <div class="stack">
+        <ol class="steplist">
+          <li><h3>Turn on Developer Mode</h3><p>In Settings, open Developer. While it's off, no add-on is read, run or shown.</p></li>
+          <li><h3>Create one</h3><p>Press Create. A starter add-on appears, switched on, with its folder open in Finder at <code>~/Library/Application Support/DynamicBar/AddOns/</code>.</p></li>
+          <li><h3>Edit main.js</h3><p>Call <code>DynamicBarKit.page</code> to draw. With Live reload on, saving restarts the add-on. The console in Settings shows logs, errors with line numbers and layout warnings.</p></li>
+          <li><h3>Add settings and permissions</h3><p>Settings declared in the manifest become controls in the add-on's row. Permissions are asked for the same way.</p></li>
+          <li><h3>Share it</h3><p>Export a <code>.dbaddon</code> from the add-on's menu. Whoever installs it sees what it asks for first.</p></li>
+        </ol>
+        <div class="btn-row" style="justify-content:flex-start;margin-top:8px">
+          <a class="btn sm" href="kit/DynamicBarKit.md" download><svg><use href="#i-down"/></svg>DynamicBarKit.md</a>
+          <a class="btn sm" href="kit/DynamicBarKit.d.ts" download><svg><use href="#i-down"/></svg>DynamicBarKit.d.ts</a>
+        </div>
+      </div>
+      <div class="stack">
+        <div class="code"><header>manifest.json<span class="acts"><button class="copy" data-copy>Copy</button></span></header><pre id="manifestCode"></pre></div>
+        <div class="code"><header>main.js<span class="acts"><button class="copy" data-copy>Copy</button></span></header><pre id="mainCode"></pre></div>
+      </div>
+    </div>
+
+    <div class="cols" style="margin-top:56px;align-items:center">
+      <svg class="layout-fig" viewBox="0 0 440 220" role="img" aria-label="The open island is 378 by 172 points; the safe area inside it is 314 by 110.">
+        <path d="M31 10h378v138a34 34 0 0 1-34 34H65a34 34 0 0 1-34-34Z" fill="#000"/>
+        <path d="M125 10h190v21a11 11 0 0 1-11 11H136a11 11 0 0 1-11-11Z" fill="#000" stroke="rgba(255,255,255,.2)"/>
+        <rect x="63" y="46" width="314" height="110" rx="6" fill="rgba(255,153,51,.1)" stroke="#ff9933" stroke-dasharray="5 4"/>
+        <text x="220" y="105" text-anchor="middle" class="safe-lbl">safe area 314 × 110</text>
+        <text x="220" y="30" text-anchor="middle" style="fill:#8a92ad">notch ≈ 190 × 32</text>
+        <text x="220" y="206" text-anchor="middle">378 × 172 pt, grows to 600 × 320</text>
+        <text x="47" y="105" text-anchor="middle" style="fill:#8a92ad">32</text>
+        <text x="393" y="105" text-anchor="middle" style="fill:#8a92ad">32</text>
+        <text x="220" y="172" text-anchor="middle" style="fill:#8a92ad">26</text>
+      </svg>
+      <div>
+        <h3 style="margin-bottom:12px">Layout rules</h3>
+        <ul class="muted" style="margin:0;padding-left:20px;font-size:15.5px">
+          <li>Never place anything in the notch. The safe area is added for you.</li>
+          <li>Use a <code>vstack</code> or <code>hstack</code> as the root, and put long content in a <code>scroll</code>.</li>
+          <li>Need more room? Pass <code>{ height, width }</code> to <code>page</code>: up to 320 tall and 600 wide.</li>
+          <li>Text sits on dark glass: white by default, opacity 0.55 for secondary lines, 11 pt or larger.</li>
+          <li>Scripts run on the main thread. Use timers, never long loops, and pause in <code>onClose</code>.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Playground -->
+  <section class="doc" id="playground" data-loop>
+    <div class="head">
+      <h2>Playground</h2>
+      <p class="lead">Edit the script and press Run, or <kbd>⌘</kbd> <kbd>Enter</kbd>. Symbols are drawn as simple glyphs here, but page trees, actions, flashes, timers and storage behave as they do in the app.</p>
+    </div>
+    <div class="play">
+      <div class="code editor"><header>main.js<span class="acts"><button class="copy" id="resetPlay" type="button">Reset</button><button class="copy" data-copy="playCode" type="button">Copy</button></span></header><textarea id="playCode" spellcheck="false" aria-label="Add-on script"></textarea></div>
+      <div class="sim">
+        <div class="sim-tools">
+          <button class="btn sm primary" id="runPlay" type="button">Run</button>
+          <select id="examples" aria-label="Example add-on"></select>
+          <label><input type="checkbox" id="guides" checked> Show safe area</label>
+        </div>
+        <div class="sim-screen" id="simScreen">
+          <svg class="ridges" aria-hidden="true"><use href="#i-ridges"/></svg>
+          <div class="sim-island guides" id="simIsland"><div class="notch"></div><div class="safe" id="simSafe"></div></div>
+          <div class="sim-flash" id="simFlash"><span id="flashText"></span><span id="flashSym"></span></div>
+        </div>
+        <div class="code"><header>Console<span class="acts"><button class="copy" id="clearConsole" type="button">Clear</button></span></header><div class="console" id="console" aria-live="polite"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI -->
+  <section class="doc" id="ai">
+    <div class="head">
+      <h2>Let an AI write it</h2>
+      <p class="lead">Describe the add-on you want. The prompt carries the whole DynamicBarKit reference, the layout rules and the output format, so Claude, ChatGPT or Gemini gets it right the first time.</p>
+    </div>
+    <div class="cols">
+      <div>
+        <label for="idea" class="muted" style="display:block;margin-bottom:8px;font-size:15px">What should it do?</label>
+        <textarea class="idea" id="idea" placeholder="A focus timer: 25 minutes, a ring that fills up, and a flash when time is up."></textarea>
+        <div class="chips" id="ideas"></div>
+        <div class="btn-row" style="justify-content:flex-start;margin-top:0">
+          <button class="btn primary" id="copyPrompt" type="button">Copy prompt</button>
+          <a class="btn" href="kit/DynamicBarKit.md" target="_blank" rel="noopener">Open the reference</a>
+        </div>
+        <ol class="steplist" style="margin-top:36px">
+          <li><h3>Paste the prompt into your AI chat</h3></li>
+          <li><h3>Save the two files</h3><p>Make a folder for them in the AddOns folder.</p></li>
+          <li><h3>Paste back what the console says</h3><p>Errors and layout warnings tell the AI exactly what to fix.</p></li>
+        </ol>
+      </div>
+      <div class="code prompt-out"><header>prompt.md<span class="acts" id="promptSize"></span></header><pre id="promptPreview"></pre></div>
+    </div>
+  </section>
+
+  <!-- Reference -->
+  <section class="doc" id="reference">
+    <div class="head">
+      <h2>Reference</h2>
+      <p class="lead">DynamicBarKit 2. The full text is in <a href="kit/DynamicBarKit.md">DynamicBarKit.md</a>, with typings in <a href="kit/DynamicBarKit.d.ts">DynamicBarKit.d.ts</a>.</p>
+    </div>
+    <div class="stack" style="gap:28px">
+      <div class="tbl"><table id="apiTable"><thead><tr><th>Call</th><th>What it does</th></tr></thead><tbody></tbody></table></div>
+      <div class="cols">
+        <div class="tbl"><table id="nodeTable"><thead><tr><th>Node</th><th>Properties</th></tr></thead><tbody></tbody></table></div>
+        <div class="tbl" style="align-self:start"><table id="permTable"><thead><tr><th>Permission</th><th>Allows</th></tr></thead><tbody></tbody></table></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<section class="closing">
+  <div class="wrap">
+    <h2>Made something good?</h2>
+    <p class="lead">Share your add-on with everyone by opening an issue on GitHub.</p>
+    <div class="btn-row"><a class="btn primary" href="https://github.com/KAG1O/DynamicBar/issues">Share an add-on</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 KAG1O</span>
+    <nav aria-label="Footer"><a href="index.html">Home</a><a href="https://github.com/KAG1O/DynamicBar">GitHub</a><a href="https://github.com/KAG1O/DynamicBar/blob/main/LICENSE.md">License</a></nav>
+  </div>
+</footer>
+
+<script src="assets/common.js"></script>
+<script src="assets/developer.js"></script>
+</body>
+</html>
