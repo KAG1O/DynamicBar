@@ -72,6 +72,14 @@ A Liquid Glass island for the Mac notch — now playing, volume & brightness, th
 
 ## Install
 
+With [Homebrew](https://brew.sh):
+
+```bash
+brew install --cask kag1o/tap/dynamicbar
+```
+
+Or by hand:
+
 1. Download `DynamicBar.dmg` from [Releases](https://github.com/KAG1O/DynamicBar/releases/latest) and drag **DynamicBar.app** to Applications.
 2. Open it. DynamicBar isn't notarized by Apple, so the first time macOS says it can't check the app. Close the message, then go to System Settings ▸ Privacy & Security, scroll down and click **Open Anyway**.
 3. The welcome window walks you through the rest. DynamicBar lives in the menu bar.
@@ -81,6 +89,8 @@ If macOS says the app is damaged, remove the download quarantine and open it aga
 ```bash
 xattr -cr /Applications/DynamicBar.app
 ```
+
+**Updates** — DynamicBar checks for new versions once a day and installs them when you agree. Turn it off, or check now, in Settings ▸ General ▸ Updates.
 
 **Permissions** — *Accessibility* lets the island take over the volume and brightness keys (choose “System” in Settings and it never needs it). *Automation ▸ Music* is optional and fetches artwork from the Music app.
 
@@ -115,7 +125,7 @@ render();
 
 ## Privacy
 
-DynamicBar has no analytics and no account. The only request it makes on its own is an artwork lookup on Apple's iTunes Search when the playing app doesn't provide a cover. Add-ons can reach the network only with the `network` permission, which is shown before you install them.
+DynamicBar has no analytics and no account. It makes only two kinds of requests on its own: an artwork lookup on Apple's iTunes Search when the playing app doesn't provide a cover, and a daily update check on this repository's website, which you can turn off. Add-ons can reach the network only with the `network` permission, which is shown before you install them.
 
 ## License
 

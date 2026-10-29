@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>DynamicBar</title>
+    <link>https://kag1o.github.io/DynamicBar/appcast.xml</link>
+    <description>DynamicBar updates</description>
+    <language>en</language>
+    <item>
+      <title>Version 1.0</title>
+      <pubDate>Thu, 29 Oct 2026 18:00:00 GMT</pubDate>
+      <sparkle:version>1</sparkle:version>
+      <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/KAG1O/DynamicBar/releases/tag/v1.0</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<ul><li>The first release of DynamicBar.</li></ul>]]></description>
+      <enclosure url="https://github.com/KAG1O/DynamicBar/releases/download/v1.0/DynamicBar.dmg" type="application/octet-stream" sparkle:edSignature="Qfh0TojqsAH3NnEG/icnES55nHeCUw0L5M/pkjVqWQvnm5plysnCYuKpUoCy5ssasKcydxbzWpghSMjiLRMNDA==" length="3371127"/>
+    </item>
+  </channel>
+</rss>

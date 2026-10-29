@@ -49,6 +49,7 @@
       <a class="btn" href="https://github.com/KAG1O/DynamicBar"><svg><use href="#i-gh"/></svg>View on GitHub</a>
     </div>
     <p class="fine">Free. Needs macOS 26 or later.</p>
+    <p class="fine brew">Or with Homebrew: <code>brew install --cask kag1o/tap/dynamicbar</code></p>
 
     <div class="stage" data-loop id="stage">
       <div class="screen" id="screen">
@@ -173,6 +174,7 @@
       <details><summary>Which music apps work?</summary><p>Anything that reports to macOS Now Playing: Music, Spotify, podcasts, videos in Safari or Chrome. You can limit it to the Music app or turn the player off.</p></details>
       <details><summary>Why does it ask for Accessibility?</summary><p>Only to take over the volume and brightness keys, so levels show in the island instead of the system square. Choose “System” in Settings and it never needs it.</p></details>
       <details><summary>Are add-ons safe?</summary><p>Add-ons run inside DynamicBar's JavaScript sandbox. The network, links, media, the clipboard and opening the island each need a permission, shown before you install. Developer Mode stays off until you turn it on.</p></details>
+      <details><summary>How do I update it?</summary><p>DynamicBar checks for new versions once a day and asks before installing one. You can check now, or turn the checks off, in Settings › General › Updates. With Homebrew, <code>brew upgrade --cask dynamicbar</code> works too.</p></details>
       <details><summary>macOS says it can't check the app.</summary><p>DynamicBar isn't notarized by Apple. Close the message, open System Settings › Privacy &amp; Security, scroll down and click Open Anyway. If macOS says the app is damaged, run <code>xattr -cr /Applications/DynamicBar.app</code> in Terminal and open it again.</p></details>
     </div>
   </section>

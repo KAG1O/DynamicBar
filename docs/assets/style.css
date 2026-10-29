@@ -123,6 +123,8 @@ p { text-wrap: pretty; }
 .btn svg { width: 17px; height: 17px; }
 .btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 34px; }
 .fine { margin: 16px 0 0; font-size: 14px; color: var(--faint); }
+.fine.brew { margin-top: 6px; }
+.fine code { padding: 2px 7px; border-radius: 6px; font-size: 13px; color: var(--muted); background: var(--surface-2); border: 1px solid var(--line); user-select: all; }
 
 /* ---------- Hero ---------- */
 .hero { padding: 132px 0 0; text-align: center; }
