@@ -13,7 +13,7 @@
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <sparkle:fullReleaseNotesLink>https://github.com/KAG1O/DynamicBar/releases/tag/v1.0</sparkle:fullReleaseNotesLink>
       <description><![CDATA[<ul><li>The first release of DynamicBar.</li></ul>]]></description>
-      <enclosure url="https://github.com/KAG1O/DynamicBar/releases/download/v1.0/DynamicBar.dmg" type="application/octet-stream" sparkle:edSignature="Qfh0TojqsAH3NnEG/icnES55nHeCUw0L5M/pkjVqWQvnm5plysnCYuKpUoCy5ssasKcydxbzWpghSMjiLRMNDA==" length="3371127"/>
+      <enclosure url="https://github.com/KAG1O/DynamicBar/releases/download/v1.0/DynamicBar.dmg" type="application/octet-stream" sparkle:edSignature="mJoOn57+285WTRkD5dOEk6FUPexO56WCPUdhBWDMA2BJoFat5xziwnkpJEPM/v9KpYPsEYXwplxBSGzrgYweAQ==" length="3412648"/>
     </item>
   </channel>
 </rss>
