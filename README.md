@@ -9,6 +9,7 @@ A Liquid Glass island for the Mac notch — now playing, volume & brightness, th
 
 [![macOS 26+](https://img.shields.io/badge/macOS-26%2B-000?logo=apple&logoColor=white)](#requirements)
 [![Free for personal use](https://img.shields.io/badge/price-free-34c759)](LICENSE.md)
+[![License: free, no resale](https://img.shields.io/badge/license-free%2C%20no%20resale-4a5c87)](LICENSE.md)
 [![Add-ons](https://img.shields.io/badge/add--ons-DynamicBarKit%202-f24d66)](#add-ons-dynamicbarkit)
 
 [**Website**](https://kag1o.github.io/DynamicBar/) · [**Download**](https://github.com/KAG1O/DynamicBar/releases/latest) · [**Developer docs**](https://kag1o.github.io/DynamicBar/developer.html) · [**Add-on playground**](https://kag1o.github.io/DynamicBar/developer.html#playground)
