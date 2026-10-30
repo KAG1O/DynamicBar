@@ -6,6 +6,16 @@
     <description>DynamicBar updates</description>
     <language>en</language>
     <item>
+      <title>Version 1.1</title>
+      <pubDate>Fri, 30 Oct 2026 13:59:28 GMT</pubDate>
+      <sparkle:version>2</sparkle:version>
+      <sparkle:shortVersionString>1.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/KAG1O/DynamicBar/releases/tag/v1.1</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<ul><li>Choose the display. Settings → General → Display lets you put the island on an external monitor and switch between displays.</li><li>Displays without a notch. The island can be drawn all the time, with curved top corners, or stay hidden and appear with the usual animation when the pointer nears the top edge.</li><li>Added a support link in Settings.</li></ul>]]></description>
+      <enclosure url="https://github.com/KAG1O/DynamicBar/releases/download/v1.1/DynamicBar.dmg" type="application/octet-stream" sparkle:edSignature="x2XPbbGZ2GITrygsO2fLl5CImpVoZecSnTh5HNBhgn+ko7ESOBr4PF1yKP8pFbiLsF50Kn32+tnHMfM/6JWzCA==" length="3435312"/>
+    </item>
+    <item>
       <title>Version 1.0</title>
       <pubDate>Thu, 29 Oct 2026 18:00:00 GMT</pubDate>
       <sparkle:version>1</sparkle:version>
