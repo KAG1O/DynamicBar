@@ -6,6 +6,16 @@
     <description>DynamicBar updates</description>
     <language>en</language>
     <item>
+      <title>Version 1.2</title>
+      <pubDate>Sun, 01 Nov 2026 13:34:44 GMT</pubDate>
+      <sparkle:version>3</sparkle:version>
+      <sparkle:shortVersionString>1.2</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/KAG1O/DynamicBar/releases/tag/v1.2</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<ul><li>Live Activities. Downloads, AirDrop and Finder copies show their progress beside the notch, and new screenshots appear as a thumbnail, including ones copied to the clipboard. Settings → Live Activities.</li><li>Screenshots in the tray. Turn on &quot;Put screenshots in the tray&quot; and every new screenshot waits there, ready to drag. The first time, macOS asks to let DynamicBar see your Desktop, where screenshots are saved.</li><li>Swipe to change tracks. Two fingers sideways over the mini island play the next or previous track, with a haptic tap. The direction can be switched in Settings → Now Playing.</li><li>Swipe to hide the mini island. Two fingers up put the artwork beside the notch away, two fingers down bring it back.</li><li>Tray limits. Keep at most a number of items, remove them after an hour, a day or a week, and pin the ones that should stay.</li><li>Follow the pointer. The island can move to whichever display the pointer is on.</li><li>Hide in full screen. The island stays out of the way of full screen videos and apps until you point at it.</li></ul>]]></description>
+      <enclosure url="https://github.com/KAG1O/DynamicBar/releases/download/v1.2/DynamicBar.dmg" type="application/octet-stream" sparkle:edSignature="ZUWEf06LwTvpe3uyxpp0j7Df6efPQzPqHsydZSYDTwswjKeROC28VATrayNfeSO1aKg9Zw/QOvjYOfhWxfIBDQ==" length="3645368"/>
+    </item>
+    <item>
       <title>Version 1.1</title>
       <pubDate>Fri, 30 Oct 2026 13:59:28 GMT</pubDate>
       <sparkle:version>2</sparkle:version>
